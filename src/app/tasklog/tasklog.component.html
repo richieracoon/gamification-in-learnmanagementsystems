@@ -1,0 +1,17 @@
+<div class="content-wrapper">
+  <div class="task-manager">
+    <div class="left-bar">
+      <div class="left-content">
+        <h2>Deine Aufgaben</h2>
+        <ul class="action-list">
+          <li class="item" *ngFor="let task of tasks">
+            <span (click)="chosenTask = task">{{task.title}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-content">
+      <app-task-details [task]="chosenTask"></app-task-details>
+    </div>
+  </div>
+</div>

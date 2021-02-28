@@ -1,0 +1,44 @@
+<h2>{{task.title}}</h2>
+<h3>{{task.description}}</h3>
+
+<div class="row">
+
+  <div class="col">
+    <div class="example-container">
+      <h3>To do</h3>
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todo"
+        [cdkDropListConnectedTo]="[doneList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of todo" cdkDrag>
+          <h4 class="subtask-title">{{item.title}}</h4>
+          <span class="subtask-description">{{item.description}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="example-container">
+      <h3>Done</h3>
+
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="done"
+        [cdkDropListConnectedTo]="[todoList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of done" cdkDrag>
+          <h4 class="subtask-title">{{item.title}}</h4>
+          <span class="subtask-description">{{item.description}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
